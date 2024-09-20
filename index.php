@@ -2,7 +2,7 @@
 
 // Подключаем файл с настройками и подключением к базе данных
 require_once 'db.php';
-require_once 'userhandler.php';
+require_once 'UserHandler.php';
 
 // Создание обработчика
 $userHandler = new UserHandler(db());
