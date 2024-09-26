@@ -163,10 +163,12 @@ class UserHandler
                 $stmt = $this->pdo->prepare("DELETE FROM users WHERE id = :id");
                 $stmt->execute([':id' => $userId]);
                 $response['success'] = true;
+                unset($response['result']);
             } else {
                 $stmt = $this->pdo->prepare("TRUNCATE TABLE users");
                 $stmt->execute();
                 $response['success'] = true;
+                unset($response['result']);
             }
         } catch (PDOException $e) {
             $response['result']['error'] = $e->getMessage();

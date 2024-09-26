@@ -32,9 +32,9 @@ try {
             break;
 
         case 'GET':
-            if (preg_match('/^\/get(?:\/(\d+))?$/', $path, $matches)) {
+            if (preg_match('/^\/get(?:\/(\d+))?(?:\/|)$/', $path, $matches)) {
                 $userId = $matches[1] ?? null;
-                $role = $_GET['role'] ?? null;
+                $role = $params['role'] ?? null;
                 if ($userId) {
                     $response = $userHandler->get($userId);
                 } else {
